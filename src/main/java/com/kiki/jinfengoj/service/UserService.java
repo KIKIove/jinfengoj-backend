@@ -3,6 +3,7 @@ package com.kiki.jinfengoj.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.kiki.jinfengoj.model.dto.user.UserQueryRequest;
+import com.kiki.jinfengoj.model.entity.Question;
 import com.kiki.jinfengoj.model.entity.User;
 import com.kiki.jinfengoj.model.vo.LoginUserVO;
 import com.kiki.jinfengoj.model.vo.UserVO;
@@ -25,7 +26,7 @@ public interface UserService extends IService<User> {
      * @param checkPassword 校验密码
      * @return 新用户 id
      */
-    long userRegister(String userAccount, String userPassword, String checkPassword);
+    long userRegister(String userName,String userAccount, String userPassword, String checkPassword);
 
     /**
      * 用户登录
@@ -117,4 +118,12 @@ public interface UserService extends IService<User> {
      */
     QueryWrapper<User> getQueryWrapper(UserQueryRequest userQueryRequest);
 
+    /**
+    * @author 82352
+    * @description 针对表【question(题目)】的数据库操作Service
+    * @createDate 2024-09-30 15:37:05
+    */
+    interface QuestionService extends IService<Question> {
+
+    }
 }
