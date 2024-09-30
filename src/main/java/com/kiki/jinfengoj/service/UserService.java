@@ -118,12 +118,4 @@ public interface UserService extends IService<User> {
      */
     QueryWrapper<User> getQueryWrapper(UserQueryRequest userQueryRequest);
 
-    /**
-    * @author 82352
-    * @description 针对表【question(题目)】的数据库操作Service
-    * @createDate 2024-09-30 15:37:05
-    */
-    interface QuestionService extends IService<Question> {
-
-    }
 }

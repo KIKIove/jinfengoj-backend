@@ -222,6 +222,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             throw new BusinessException(ErrorCode.OPERATION_ERROR, "未登录");
         }
         // 移除登录态
+        log.info("user logout");
         request.getSession().removeAttribute(USER_LOGIN_STATE);
         return true;
     }
