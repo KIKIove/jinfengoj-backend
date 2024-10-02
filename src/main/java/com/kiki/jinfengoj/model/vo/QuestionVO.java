@@ -67,6 +67,7 @@ public class QuestionVO implements Serializable {
      */
     private Long userId;
 
+
     /**
      * 创建时间
      */
