@@ -23,8 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author kiki
- * @date 2024/9/30
- * @Description
+ * @Description 题目提交相关接口
  */
 @RestController
 @RequestMapping("/question/question_submit")
@@ -44,7 +43,7 @@ public class QuestionSubmitController {
      * @param request
      * @return 提交记录的 id
      */
-    @PostMapping("/")
+    @PostMapping("/do")
     public BaseResponse<Long> doQuestionSubmit(@RequestBody QuestionSubmitAddRequest questionSubmitAddRequest,
                                                HttpServletRequest request) {
         if (questionSubmitAddRequest == null || questionSubmitAddRequest.getQuestionId() <= 0) {

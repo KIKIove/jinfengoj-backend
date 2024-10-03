@@ -26,8 +26,7 @@ import java.util.List;
 
 /**
  * @author kiki
- * @date 2024/9/30
- * @Description
+ * @Description 题目相关接口
  */
 @RestController
 @Slf4j
@@ -51,6 +50,7 @@ public class QuestionController {
      * @return
      */
     @PostMapping("/add")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     public BaseResponse<Long> addQuestion(@RequestBody QuestionAddRequest questionAddRequest, HttpServletRequest request) {
         if (questionAddRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);

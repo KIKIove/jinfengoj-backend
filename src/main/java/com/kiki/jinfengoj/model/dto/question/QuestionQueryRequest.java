@@ -9,7 +9,6 @@ import java.util.List;
 
 /**
  * @author kiki
- * @date 2024/9/30
  * @Description 题目查询请求
  */
 @EqualsAndHashCode(callSuper = true)

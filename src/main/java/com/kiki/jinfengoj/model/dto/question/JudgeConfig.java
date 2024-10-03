@@ -4,7 +4,6 @@ import lombok.Data;
 
 /**
  * @author kiki
- * @date 2024/9/30
  * @Description 题目配置
  */
 @Data

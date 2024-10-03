@@ -1,4 +1,4 @@
-package com.kiki.jinfengoj.model.dto.questionsubmit;
+package com.kiki.jinfengoj.judge.codesandbox.model;
 
 import lombok.Data;
 

@@ -6,7 +6,7 @@ spring:
     name: jinfeng-oj
   # 默认 dev 环境
   profiles:
-    active: dev
+    active: prod
   # 支持 swagger3
   mvc:
     pathmatch:
@@ -86,7 +86,6 @@ cos:
     bucket: xxx
 # 接口文档配置
 knife4j:
-  enable: true
   openapi:
     title: "接口文档"
     version: 1.0
@@ -95,3 +94,7 @@ knife4j:
         api-rule: package
         api-rule-resources:
           - com.kiki.jinfengoj.controller
+
+# 代码沙箱
+codesandbox:
+  type: remote

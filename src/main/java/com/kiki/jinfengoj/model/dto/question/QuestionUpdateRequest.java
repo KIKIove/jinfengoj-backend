@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * @author kiki
- * @date 2024/9/30
  * @Description 管理员使用，对题目进行更新
  */
 @Data

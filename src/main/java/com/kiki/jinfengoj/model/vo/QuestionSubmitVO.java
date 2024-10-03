@@ -1,7 +1,7 @@
 package com.kiki.jinfengoj.model.vo;
 
 import cn.hutool.json.JSONUtil;
-import com.kiki.jinfengoj.model.dto.questionsubmit.JudgeInfo;
+import com.kiki.jinfengoj.judge.codesandbox.model.JudgeInfo;
 import com.kiki.jinfengoj.model.entity.QuestionSubmit;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;

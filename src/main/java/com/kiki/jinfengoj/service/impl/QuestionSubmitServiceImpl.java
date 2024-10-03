@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kiki.jinfengoj.common.ErrorCode;
 import com.kiki.jinfengoj.constant.CommonConstant;
 import com.kiki.jinfengoj.exception.BusinessException;
+import com.kiki.jinfengoj.judge.JudgeManager;
+import com.kiki.jinfengoj.judge.JudgeService;
 import com.kiki.jinfengoj.model.dto.questionsubmit.QuestionSubmitAddRequest;
 import com.kiki.jinfengoj.model.dto.questionsubmit.QuestionSubmitQueryRequest;
 import com.kiki.jinfengoj.model.entity.Question;
@@ -22,10 +24,12 @@ import com.kiki.jinfengoj.utils.SqlUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 /**
@@ -41,6 +45,11 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
 
     @Resource
     private UserService userService;
+
+    @Resource
+    @Lazy
+    private JudgeService judgeService;
+
 
     /**
      * 提交题目
@@ -78,7 +87,13 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         if (!save){
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据插入失败");
         }
-        return questionSubmit.getId();
+        // todo 执行判题服务
+        Long questionSubmitId = questionSubmit.getId();
+        CompletableFuture.runAsync(() -> {
+            // 这里使用native代码沙箱
+            judgeService.doJudgeByNative(questionSubmitId);
+        });
+        return questionSubmitId;
     }
 
 
